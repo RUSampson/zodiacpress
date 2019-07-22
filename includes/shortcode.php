@@ -7,6 +7,7 @@ add_shortcode( 'birthreport', 'zp_birthreport_shortcode' );
 function zp_birthreport_shortcode( $atts ) {
 	$report_atts = shortcode_atts( array(
 		'report'		=> 'birthreport',
+		'form_title'	=> '',// @todo DEPRECATED remove in next update
 		'sidereal'		=> false,
 		'house_system'	=> false,
 		'sell'			=> false,

@@ -186,7 +186,7 @@ zpSubmit.addEventListener( 'click', function( e ) {
 					}
 
 					/* Scroll to top of report */
-					window.scrollTo({ top: wrap.offsetTop, behavior: 'smooth' });// @test on safari
+					window.scrollTo({ top: wrap.offsetTop + 70, behavior: 'smooth' });// @test on safari
 
 				}
 

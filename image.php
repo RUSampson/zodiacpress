@@ -48,7 +48,12 @@ $dir = rtrim( dirname( __FILE__ ), '/\\' ) . '/assets/fonts/';
 
 // create the blank image
 $overall_size = 660;
-$im = @imagecreatetruecolor( $overall_size, $overall_size ) or die( 'Cannot initialize new GD image stream' );
+//$im = @imagecreatetruecolor( $overall_size, $overall_size ) or die( 'Cannot initialize new GD image stream' );
+
+$im = @imagecreatetruecolor ( $overall_size, $overall_size ) or die( 'Cannot initialize new GD image stream' );
+
+imageSaveAlpha($im, true);
+ImageAlphaBlending($im, false);
 
 // Define colors
 $black = imagecolorallocate($im, 0, 0, 0);
@@ -63,6 +68,7 @@ $bright_green = imagecolorallocate($im, 0, 224, 0);
 $blues_blue = imagecolorallocate($im, 31,141,186);
 $gray = imagecolorallocate($im,233,233,233);
 $off_white = imagecolorallocate($im,248,248,248);
+$backgnd = imagecolorallocate($im,10,0,32); // chart background RGB
 
 // ------------------------------------------
 
@@ -131,6 +137,9 @@ $air_sign_color = isset( $customizer_rgb['air_sign_color'] ) ?
 $water_sign_color = isset( $customizer_rgb['water_sign_color'] ) ?
 				imagecolorallocate($im, $customizer_rgb['water_sign_color'][0], $customizer_rgb['water_sign_color'][1], $customizer_rgb['water_sign_color'][2]) :
 				$blue;
+$backgnd_color = isset( $customizer_rgb['backgnd_color'] ) ?
+				imagecolorallocate($im, $customizer_rgb['backgnd_color'][0], $customizer_rgb['backgnd_color'][1], $customizer_rgb['backgnd_color'][2]) :
+				$backgnd;
 
 // ------------------------------------------
 
@@ -193,7 +202,7 @@ $sign_glyph = array(
 // ------------------------------------------
 
 // create colored rectangle on blank image
-imagefilledrectangle( $im, 0, 0, $overall_size, $overall_size, $white );
+imagefilledrectangle( $im, 0, 0, $overall_size, $overall_size, $backgnd );
 
 // Draw the outer border of the chartwheel. Make it smaller to fit antialiased border.
 imagefilledellipse( $im, $center_pt, $center_pt, $overall_size - 1, $overall_size - 1, $outer_bg_color );

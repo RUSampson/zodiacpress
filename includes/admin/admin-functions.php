@@ -143,10 +143,16 @@ add_action( 'admin_post_erase_natal_aspects', 'zp_erase_natal_aspects' );
  * Custom admin menu icon
  */
 function zp_custom_admin_menu_icon() {
-	echo '<style>@font-face {
-  font-family:zodiacpress;
-  src:local("zodiacpress"),url(' . ZODIACPRESS_URL . 'assets/fonts/zodiacpress.woff?fr7qsr) format("woff");
-  font-weight: normal;font-style: normal}#adminmenu .toplevel_page_zodiacpress .dashicons-universal-access-alt.dashicons-before::before {font-family: "zodiacpress" !important}#adminmenu .toplevel_page_zodiacpress div.dashicons-universal-access-alt::before{content:"\e90c"}</style>';
+   echo '<style>@font-face {
+  font-family: "zodiacpress";
+  src:    url("' . ZODIACPRESS_URL . 'assets/fonts/zodiacpress.eot?fr7qsr");
+  src:    url("' . ZODIACPRESS_URL . 'assets/fonts/zodiacpress.eot?fr7qsr#iefix") format("embedded-opentype"),
+  url("' . ZODIACPRESS_URL . 'assets/fonts/zodiacpress.ttf?fr7qsr") format("truetype"),
+  url("' . ZODIACPRESS_URL . 'assets/fonts/zodiacpress.woff?fr7qsr") format("woff"),
+  url("' . ZODIACPRESS_URL . 'assets/fonts/zodiacpress.svg?fr7qsr#zodiacpress") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  }#adminmenu .toplevel_page_zodiacpress .dashicons-universal-access-alt.dashicons-before::before {font-family: "zodiacpress" !important}#adminmenu .toplevel_page_zodiacpress div.dashicons-universal-access-alt::before{content:"\e90c"}</style>';
 }
 add_action('admin_head', 'zp_custom_admin_menu_icon');
 /**

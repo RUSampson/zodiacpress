@@ -354,7 +354,7 @@ class ZP_Birth_Report {
 				}
 				$planets_in_signs[] = array(
 							'id'			=> $planet['id'] . '_' . $signs[ $sign_num ]['id'],
-							'label'			=> sprintf( __( '%1$s in %2$s', 'zodiacpress' ), $planet['label'], $signs[ $sign_num ]['label'] ),
+							'label'			=> sprintf( __( '%1$s in %2$s', 'zodiacpress' ), __($planet['label'], 'zodiacpress' ), $signs[ $sign_num ]['label'] ),
 							'zodiacal_dms'	=> zp_get_zodiac_sign_dms( $this->chart->planets_longitude[ $k ] ) . $retrograde,
 							'ingress_0'		=> isset( $ingress[0] ) ? $signs[ $ingress[0] ]['label'] : '',
 							'ingress_1'		=> isset( $ingress[1] ) ? $signs[ $ingress[1] ]['label'] : '',
@@ -374,7 +374,7 @@ class ZP_Birth_Report {
 		$next_id 	= $planet['id'] . '_' . $next_num;
 		/* translators: 1: Planet 2: Number order */
 		$next_label	= sprintf( __( '%1$s in %2$s House', 'zodiacpress' ),
-					$planet['label'],
+					__($planet['label'], 'zodiacpress' ),
 					zp_ordinal_word( $next_num )
 				);
 
@@ -411,12 +411,12 @@ class ZP_Birth_Report {
 				$planets_in_houses[] = array(
 							'id'		=> $planet['id'] . '_' . $house_num,
 							'label'		=> sprintf( __( '%1$s in %2$s House', 'zodiacpress' ),
-													$planet['label'],
+													__($planet['label'], 'zodiacpress' ),
 													zp_ordinal_word( $house_num )
 												),
 							'next_id'		=> isset( $next[0] ) ? $next[0] : '',
 							'next_label'	=> isset( $next[1] ) ? $next[1] : '',
-							'planet_label'	=> $planet['label']
+							'planet_label'	=> __($planet['label'], 'zodiacpress' )
 				);
 			}
 		}
@@ -482,7 +482,7 @@ class ZP_Birth_Report {
 									$aspects_list[] = array(
 												'id'	 			=> $p_1['id'] . '_' . $asp['id'] . '_' . $p_2['id'],
 												'aspecting_planet'	=> $aspecting_planet,
-												'label'				=> $p_1['label'] . ' ' . $asp['label'] . ' ' . $p_2['label'] . ' <span class="zp-orb">(' . __('orb', 'zodiacpress' ) . ' ' . $orb . ')</span>',
+												'label'				=> __($p_1['label'], 'zodiacpress' ) . ' ' . __($asp['label'], 'zodiacpress' ) . ' ' . __($p_2['label'], 'zodiacpress' ) . ' <span class="zp-orb">(' . __('orb', 'zodiacpress' ) . ' ' . $orb . ')</span>',
 									);
 
 								}
@@ -497,7 +497,7 @@ class ZP_Birth_Report {
 									$aspects_list[] = array(
 												'id'				=> $p_1['id'] . '_' . $asp['id'] . '_' . $p_2['id'],
 												'aspecting_planet'	=> $aspecting_planet,
-												'label'				=> $p_1['label'] . ' ' . $asp['label'] . ' ' . $p_2['label'] . ' <span class="zp-orb">(' . __('orb', 'zodiacpress' ) . ' ' . $orb . ')</span>',
+												'label'				=> __($p_1['label'], 'zodiacpress' ) . ' ' . __($asp['label'], 'zodiacpress' ) . ' ' . __($p_2['label'], 'zodiacpress' ) . ' <span class="zp-orb">(' . __('orb', 'zodiacpress' ) . ' ' . $orb . ')</span>',
 									);			
 								}
 
