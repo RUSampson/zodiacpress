@@ -134,15 +134,15 @@ function zp_get_enabled_interps() {
 
 		foreach ( $options['enable_planet_signs'] as $planet ) {
 
-			$section = ( 'sun' == $planet['id'] ) ? 'main' : $planet['id'];
+			$section = ( 'sun' == __($planet['id'], 'zodiacpress') ) ? 'main' : __($planet['id'], 'zodiacpress');
 
 			foreach ( zp_get_zodiac_signs() as $sign ) {
 
-				$key 	= $planet['id'] . '_' . $sign['id'];
+				$key 	= __($planet['id'], 'zodiacpress') . '_' . __($sign['id'], 'zodiacpress');
 				/* translators: 1: Planet 2: Zodiac sign */
 				$name 	= sprintf( __( '%1$s in %2$s', 'zodiacpress' ),
-						$planet['label'],
-						$sign['label']
+						__($planet['label'], 'zodiacpress'),
+						__($sign['label'], 'zodiacpress')
 						);
 
 				$zp_interps_settings[ $tab ][ $section ][ $key ]['id'] = $key;
@@ -199,12 +199,11 @@ function zp_get_enabled_interps() {
 
 				if ( $j > $i ) {
 
-					$section = ( 'sun' == $planets[$i]['id'] ) ? 'main' : $planets[$i]['id'];
-
+					$section = ( 'sun' == __($planets[$i]['id'], 'zodiacpress') ) ? 'main' : __($planets[$i]['id'], 'zodiacpress');
 					foreach ( $aspects as $aspect ) {
 
-						$key 	= $planets[$i]['id'] . '_' . $aspect['id'] . '_' . $planets[$j]['id'];
-						$name 	= $planets[$i]['label'] . ' ' . $aspect['label'] . ' ' . $planets[$j]['label'];
+						$key 	= __($planets[$i]['id'],'zodiacpress') . '_' . __($aspect['id'], 'zodiacpress') . '_' . __($planets[$j]['id'], 'zodiacpress');
+						$name 	= __($planets[$i]['label'], 'zodiacpress') . ' ' . __($aspect['label'], 'zodiacpress') . ' ' . __($planets[$j]['label'], 'zodiacpress');
 
 						$zp_interps_settings[ $tab ][ $section ][ $key ]['id']	= $key;
 						$zp_interps_settings[ $tab ][ $section ][ $key ]['name'] = $name;

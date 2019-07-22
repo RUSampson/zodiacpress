@@ -48,6 +48,8 @@ class ZP_Customize {
 											__( 'Air Sign Color', 'zodiacpress' ) ),
 		'water_sign_color'			=> array( '#4169e1',
 											__( 'Water Sign Color', 'zodiacpress' ) ),
+		'backgnd_chart'			    => array( '#0A0020',
+											__( 'Chart Background', 'zodiacpress' ) ),
 		);
 		return $defaults;	
 	}

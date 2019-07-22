@@ -46,3 +46,21 @@ function zp_script_localization_data() {
 	);
 	return apply_filters( 'zp_localize_script', $data );
 }
+/**
+ * Get data strings for the zp-autocomplete.js script.
+ * @todo deprecated Remove in very next update
+ * @deprecated 
+ */
+function zp_geonames_js_strings() {
+	global $zodiacpress_options;
+	// If language is other than English, get lang code to tranlsate Autocomplete cities.
+	$wplang = get_locale();
+	$langcode = substr( $wplang, 0, 2 );
+	$city_list_lang = ( 'en' != $langcode ) ? $langcode : '';
+	$geonames_username = empty( $zodiacpress_options['geonames_user'] ) ? '' : trim( $zodiacpress_options['geonames_user'] );
+	$data = array(
+		'lang'			=> $city_list_lang,
+		'geonames_user'	=> $geonames_username
+	);
+	return $data;
+}
